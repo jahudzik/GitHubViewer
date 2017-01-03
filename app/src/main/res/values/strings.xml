@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GitHub Viewer</string>
+    <string name="specify_github_account_name">Specify GitHub account name</string>
+    <string name="search_account">Search account</string>
 </resources>
