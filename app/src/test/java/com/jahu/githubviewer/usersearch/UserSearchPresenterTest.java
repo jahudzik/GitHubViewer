@@ -27,11 +27,23 @@ public class UserSearchPresenterTest {
   }
 
   @Test
-  public void findUser() {
+  public void findUser_correctValue() {
     String username = "john";
     presenter.findUser(username);
     verify(viewMock).showLoading();
     verify(dataSourceMock).findUser(username, presenter);
+  }
+
+  @Test
+  public void findUser_empty() {
+    presenter.findUser("");
+    verify(viewMock).showError(eq("User name cannot be empty"));
+  }
+
+  @Test
+  public void findUser_nullValue() {
+    presenter.findUser(null);
+    verify(viewMock).showError(eq("User name cannot be empty"));
   }
 
   @Test
