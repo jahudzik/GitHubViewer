@@ -28,4 +28,5 @@ ext {
     mockitoVersion = '1.10.19'
     butterknifeVersion = '8.4.0'
     retrofitVersion = '2.1.0'
+    timberVersion = '4.4.0'
 }

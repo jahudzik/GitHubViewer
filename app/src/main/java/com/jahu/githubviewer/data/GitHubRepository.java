@@ -1,6 +1,5 @@
 package com.jahu.githubviewer.data;
 
-import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jahu.githubviewer.data.users.User;
@@ -8,14 +7,13 @@ import com.jahu.githubviewer.data.users.UsersDataSource;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import timber.log.Timber;
 
 public class GitHubRepository implements UsersDataSource {
-
-  private static final String TAG = GitHubRepository.class.getSimpleName();
 
   private final GitHubApi gitHubApi;
 
@@ -44,7 +42,7 @@ public class GitHubRepository implements UsersDataSource {
 
       @Override
       public void onFailure(Call<User> call, Throwable throwable) {
-        Log.e(TAG, "Failed to get the user", throwable);
+        Timber.e("Failed to get the user", throwable);
         callback.onError(throwable.getMessage());
       }
     });
