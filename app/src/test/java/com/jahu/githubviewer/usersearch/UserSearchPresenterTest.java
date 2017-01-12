@@ -2,6 +2,7 @@ package com.jahu.githubviewer.usersearch;
 
 import com.jahu.githubviewer.data.users.User;
 import com.jahu.githubviewer.data.users.UsersDataSource;
+import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -48,7 +49,7 @@ public class UserSearchPresenterTest {
 
   @Test
   public void onUserFound() {
-    User user = new User("Andy");
+    User user = new User("Andy", "and", "", "Google", "London", 7, new Date(2009, 11, 9), 67);
     presenter.onUserFound(user);
     verify(viewMock).stopLoading();
     verify(viewMock).showUserDetails(eq("User found: Andy"), eq(user));
