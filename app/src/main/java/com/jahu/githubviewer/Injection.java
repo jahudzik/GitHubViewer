@@ -5,13 +5,13 @@ import com.jahu.githubviewer.data.users.UsersDataSource;
 
 public class Injection {
 
-  private static UsersDataSource usersDataSource;
+    private static UsersDataSource usersDataSource;
 
-  public static UsersDataSource provideUserDataSource() {
-    if (usersDataSource == null) {
-      usersDataSource = new GitHubRepository();
+    public static UsersDataSource provideUserDataSource() {
+        if (usersDataSource == null) {
+            usersDataSource = new GitHubRepository();
+        }
+        return usersDataSource;
     }
-    return usersDataSource;
-  }
 
 }

@@ -15,46 +15,46 @@ import timber.log.Timber;
 
 public class GitHubRepository implements UsersDataSource {
 
-  private final GitHubApi gitHubApi;
+    private final GitHubApi gitHubApi;
 
-  public GitHubRepository() {
-    Gson gson = new GsonBuilder()
-        .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-        .create();
-    Retrofit retrofit = new Retrofit.Builder()
-        .baseUrl(GitHubApi.ENDPOINT)
-        .addConverterFactory(GsonConverterFactory.create(gson))
-        .build();
-    gitHubApi = retrofit.create(GitHubApi.class);
-  }
+    public GitHubRepository() {
+        Gson gson = new GsonBuilder()
+            .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+            .create();
+        Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(GitHubApi.ENDPOINT)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build();
+        gitHubApi = retrofit.create(GitHubApi.class);
+    }
 
-  @Override
-  public void findUser(String username, FindUserCallback callback) {
-    gitHubApi.getUser(username).enqueue(new Callback<User>() {
-      @Override
-      public void onResponse(Call<User> call, Response<User> response) {
-        if (response != null && response.isSuccessful() && response.body() != null) {
-          callback.onUserFound(response.body());
-        } else {
-          callback.onUserNotFound();
-        }
-      }
+    @Override
+    public void findUser(String username, FindUserCallback callback) {
+        gitHubApi.getUser(username).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response != null && response.isSuccessful() && response.body() != null) {
+                    callback.onUserFound(response.body());
+                } else {
+                    callback.onUserNotFound();
+                }
+            }
 
-      @Override
-      public void onFailure(Call<User> call, Throwable throwable) {
-        Timber.e("Failed to get the user", throwable);
-        callback.onError(throwable.getMessage());
-      }
-    });
-  }
+            @Override
+            public void onFailure(Call<User> call, Throwable throwable) {
+                Timber.e("Failed to get the user", throwable);
+                callback.onError(throwable.getMessage());
+            }
+        });
+    }
 
-  interface GitHubApi {
+    interface GitHubApi {
 
-    String ENDPOINT = "https://api.github.com";
+        String ENDPOINT = "https://api.github.com";
 
-    @GET("/users/{username}")
-    Call<User> getUser(@Path("username") String username);
+        @GET("/users/{username}")
+        Call<User> getUser(@Path("username") String username);
 
-  }
+    }
 
 }

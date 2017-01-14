@@ -9,16 +9,16 @@ import com.jahu.githubviewer.R;
 
 public class UserSearchActivity extends BaseActivity {
 
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_user_search);
-    UserSearchFragment fragment = (UserSearchFragment) getSupportFragmentManager().findFragmentById(R.id.user_search_container);
-    if (fragment == null) {
-      fragment = UserSearchFragment.newInstance();
-      showFragment(R.id.user_search_container, fragment);
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_search);
+        UserSearchFragment fragment = (UserSearchFragment) getSupportFragmentManager().findFragmentById(R.id.user_search_container);
+        if (fragment == null) {
+            fragment = UserSearchFragment.newInstance();
+            showFragment(R.id.user_search_container, fragment);
+        }
+        new UserSearchPresenter(fragment, Injection.provideUserDataSource());
     }
-    new UserSearchPresenter(fragment, Injection.provideUserDataSource());
-  }
 
 }

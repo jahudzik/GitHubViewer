@@ -5,22 +5,22 @@ import com.jahu.githubviewer.data.users.User;
 
 interface UserSearchContract {
 
-  interface View extends BaseView {
+    interface View extends BaseView {
 
-    void showLoading();
+        void showLoading();
 
-    void stopLoading();
+        void stopLoading();
 
-    void showError(String errorMessage);
+        void showError(String errorMessage);
 
-    void showUserDetails(String message, User user);
+        void showUserDetails(String message, User user);
 
-  }
+    }
 
-  interface Presenter {
+    interface Presenter {
 
-    void findUser(String username);
+        void findUser(String username);
 
-  }
+    }
 
 }

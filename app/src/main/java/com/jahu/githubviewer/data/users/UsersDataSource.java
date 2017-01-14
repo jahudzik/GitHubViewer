@@ -2,16 +2,16 @@ package com.jahu.githubviewer.data.users;
 
 public interface UsersDataSource {
 
-  void findUser(String username, FindUserCallback callback);
+    void findUser(String username, FindUserCallback callback);
 
-  interface FindUserCallback {
+    interface FindUserCallback {
 
-    void onUserFound(User user);
+        void onUserFound(User user);
 
-    void onUserNotFound();
+        void onUserNotFound();
 
-    void onError(String errorMessage);
+        void onError(String errorMessage);
 
-  }
+    }
 
 }
