@@ -1,9 +1,10 @@
 package com.jahu.githubviewer.data.users;
 
 import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
 
     private final String name;
     private final String login;

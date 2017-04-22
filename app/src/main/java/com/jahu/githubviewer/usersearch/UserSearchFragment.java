@@ -1,5 +1,6 @@
 package com.jahu.githubviewer.usersearch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import butterknife.OnClick;
 import com.jahu.githubviewer.BasePresenter;
 import com.jahu.githubviewer.R;
 import com.jahu.githubviewer.data.users.User;
+import com.jahu.githubviewer.userdetails.UserDetailsActivity;
 
 public class UserSearchFragment extends Fragment implements UserSearchContract.View {
 
@@ -67,5 +69,8 @@ public class UserSearchFragment extends Fragment implements UserSearchContract.V
     @Override
     public void showUserDetails(String message, User user) {
         Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getContext(), UserDetailsActivity.class);
+        intent.putExtra(UserDetailsActivity.BUNDLE_USER, user);
+        startActivity(intent);
     }
 }
