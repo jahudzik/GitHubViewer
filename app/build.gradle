@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.jahu.githubviewer"
         minSdkVersion 19
@@ -17,6 +17,17 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        abortOnError true
+        checkAllWarnings true
+        warningsAsErrors true
+        textReport true
+        textOutput 'stdout'
+        htmlReport true
+        htmlOutput file("${rootDir}/build/lint-report.html")
+        xmlOutput file("${rootDir}/build/lint-report.xml")
+
     }
     buildTypes {
         release {
