@@ -42,7 +42,7 @@ public class GitHubRepository implements UsersDataSource {
 
             @Override
             public void onFailure(Call<User> call, Throwable throwable) {
-                Timber.e("Failed to get the user", throwable);
+                Timber.e(throwable, "Failed to get the user");
                 callback.onError(throwable.getMessage());
             }
         });

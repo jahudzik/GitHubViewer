@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:layout_toRightOf="@id/user_avatar"
+        android:layout_toEndOf="@id/user_avatar"
         android:orientation="vertical">
 
         <TextView
@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:textIsSelectable="true"
             tools:text="John Smith"/>
 
         <TextView
@@ -30,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:textIsSelectable="true"
             tools:text="Microsoft"/>
 
         <TextView
@@ -37,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
+            android:textIsSelectable="true"
             tools:text="San Francisco"/>
 
     </LinearLayout>
