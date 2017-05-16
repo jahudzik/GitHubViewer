@@ -26,7 +26,7 @@ ext {
     supportLibraryVersion = '25.3.1'
     junitVersion = '4.12'
     mockitoVersion = '1.10.19'
-    butterknifeVersion = '8.5.1'
+    butterknifeVersion = '8.6.0'
     retrofitVersion = '2.1.0'
     timberVersion = '4.5.1'
 }
